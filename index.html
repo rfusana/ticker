@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ticker</title>
+<title>Ticker Slide Up</title>
 <style>
-  :root{
+  :root {
     --bg: transparent;
-    --fg: #333333; /* Dark gray for readability on white */
-    --accent: #0077cc; /* Blue accent */
+    --fg: #333333;
+    --accent: #0077cc;
   }
 
   body {
@@ -16,24 +16,24 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--bg);
   }
+
   .ticker-wrap {
-    overflow: hidden;
     width: 100%;
-    box-sizing: border-box;
     padding: 8px 12px;
     border-radius: 8px;
+    overflow: hidden;
+    height: 24px; /* fixed height to avoid jump, adjust to font size */
     display: flex;
     align-items: center;
+    box-sizing: border-box;
   }
 
   .ticker {
-    display: inline-block;
-    white-space: nowrap;
-    will-change: transform;
-    animation: scroll-left 18s linear infinite;
-    font-weight: 600;
-    font-size: 12px; /* Updated font size */
     color: var(--fg);
+    font-weight: 600;
+    font-size: 12px;
+    animation: slideUpFade 20s ease-in-out infinite;
+    display: inline-block;
   }
 
   .time {
@@ -42,30 +42,15 @@
     font-weight: 700;
   }
 
-  .ticker-wrap:hover .ticker,
-  .ticker-wrap:focus-within .ticker {
-    animation-play-state: paused;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ticker {
-      animation: none;
+  @keyframes slideUpFade {
+    0%, 50% {
+      transform: translateY(0);
+      opacity: 1;
     }
-  }
-
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(100%);
+    60%, 100% {
+      transform: translateY(-100%);
+      opacity: 0;
     }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
-  a.notice-link {
-    color: inherit;
-    text-decoration: underline;
-    margin-left: 8px;
   }
 </style>
 </head>
