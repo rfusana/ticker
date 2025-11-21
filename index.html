@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ticker</title>
+<style>
+  :root{
+    --bg: #0b1220;
+    --fg: #fff;
+    --accent: #ffd24d;
+  }
+
+  body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg); }
+  .ticker-wrap{
+    overflow:hidden;
+    width:100%;
+    box-sizing:border-box;
+    padding:8px 12px;
+    border-radius:8px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    display:flex;
+    align-items:center;
+  }
+
+  .ticker {
+    display:inline-block;
+    white-space:nowrap;
+    will-change:transform;
+    animation: scroll-left 18s linear infinite;
+    font-weight:600;
+    font-size:14px;
+    color:var(--fg);
+  }
+
+  .time { color:var(--accent); margin:0 6px; font-weight:700; }
+
+  .ticker-wrap:hover .ticker,
+  .ticker-wrap:focus-within .ticker { animation-play-state:paused; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker { animation: none; }
+  }
+
+  @keyframes scroll-left{
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  a.notice-link { color:inherit; text-decoration:underline; margin-left:8px; }
+</style>
+</head>
+<body>
+  <div class="ticker-wrap" role="region" aria-label="Data update notice">
+    <div class="ticker" aria-live="polite">
+      Data is refreshed daily at<span class="time">07:00 EET</span>— contact support if you see a discrepancy.
+    </div>
+  </div>
+</body>
+</html>
