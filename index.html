@@ -22,7 +22,7 @@
     padding: 8px 12px;
     border-radius: 8px;
     overflow: hidden;
-    height: 24px; /* fixed height to avoid jump, adjust to font size */
+    height: 24px; /* fixed height to avoid jump */
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -32,7 +32,7 @@
     color: var(--fg);
     font-weight: 600;
     font-size: 12px;
-    animation: slideUpFade 20s ease-in-out infinite;
+    animation: slideUpFade 7s ease-in-out infinite;
     display: inline-block;
   }
 
@@ -43,11 +43,11 @@
   }
 
   @keyframes slideUpFade {
-    0%, 50% {
+    0%, 71% {
       transform: translateY(0);
       opacity: 1;
     }
-    60%, 100% {
+    86%, 100% {
       transform: translateY(-100%);
       opacity: 0;
     }
