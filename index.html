@@ -6,48 +6,68 @@
 <title>Ticker</title>
 <style>
   :root{
-    --bg: #0b1220;
-    --fg: #fff;
-    --accent: #ffd24d;
+    --bg: transparent;
+    --fg: #333333; /* Dark gray for readability on white */
+    --accent: #0077cc; /* A blue accent color */
   }
 
-  body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg); }
-  .ticker-wrap{
-    overflow:hidden;
-    width:100%;
-    box-sizing:border-box;
-    padding:8px 12px;
-    border-radius:8px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    display:flex;
-    align-items:center;
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+  }
+  .ticker-wrap {
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border-radius: 8px;
+    /* No background so it stays transparent */
+    display: flex;
+    align-items: center;
   }
 
   .ticker {
-    display:inline-block;
-    white-space:nowrap;
-    will-change:transform;
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
     animation: scroll-left 18s linear infinite;
-    font-weight:600;
-    font-size:14px;
-    color:var(--fg);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--fg);
   }
 
-  .time { color:var(--accent); margin:0 6px; font-weight:700; }
+  .time {
+    color: var(--accent);
+    margin: 0 6px;
+    font-weight: 700;
+  }
 
   .ticker-wrap:hover .ticker,
-  .ticker-wrap:focus-within .ticker { animation-play-state:paused; }
+  .ticker-wrap:focus-within .ticker {
+    animation-play-state: paused;
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .ticker { animation: none; }
+    .ticker {
+      animation: none;
+    }
   }
 
-  @keyframes scroll-left{
-    0%   { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 
-  a.notice-link { color:inherit; text-decoration:underline; margin-left:8px; }
+  a.notice-link {
+    color: inherit;
+    text-decoration: underline;
+    margin-left: 8px;
+  }
 </style>
 </head>
 <body>
